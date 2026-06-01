@@ -1754,13 +1754,20 @@ async function openaiSendMessage(node,msgs) {
         const reader = res.body.getReader();
         const decoder = new TextDecoder("utf-8");
         let exclude = null; // Exclude object
+        let buffer = ''; // Buffer for incomplete data
 
         while (true) {
           let { done, value } = await reader.read();
 
           // Extract text data
           if ( value ) {
-            decoder.decode(value).split('\n').forEach( data => {
+            buffer += decoder.decode(value, { stream: true });
+
+            // Keep last potentially incomplete line
+            let parts = buffer.split('\n');
+            buffer = parts.pop();
+
+            parts.forEach( data => {
               if ( data.startsWith("data: ") ) {
                 let line = data.substring(6).trim();
                 if ( line === '[DONE]' ) {
