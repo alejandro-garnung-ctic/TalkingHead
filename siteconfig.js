@@ -19,20 +19,16 @@ export const site = {
         {
           "bone":"LeftBreast",
           "type":"point",
-          "stiffness":600,
-          "damping":20,
-          "deltaLocal":[0,0.01,0],
-          "deltaWorld":[0,-0.02,0],
-          "limits":[[-0.02,0.02],[-0.02,0.06],[-0.02,0.02],[-0.5,0.5]]
+          "stiffness":6,
+          "damping":0.1,
+          "limits":[[-0.6,0.6],[-0.6,0.6],[-0.6,0.6],null]
         },
         {
           "bone":"RightBreast",
           "type":"point",
-          "stiffness":600,
-          "damping":20,
-          "deltaLocal":[0,0.01,0],
-          "deltaWorld":[0,-0.02,0],
-          "limits":[[-0.02,0.02],[-0.02,0.06],[-0.02,0.02],[-0.5,0.5]]
+          "stiffness":6,
+          "damping":0.1,
+          "limits":[[-0.6,0.6],[-0.6,0.6],[-0.6,0.6],null]
         },
         {
           "bone":"Ponytail1",

@@ -148,6 +148,7 @@ class TalkingHead {
       modelPixelRatio: 1,
       modelFPS: 30,
       modelMovementFactor: 1,
+      mouthFactor: 1,
       cameraView: 'full',
       dracoEnabled: false,
       dracoDecoderPath: 'https://www.gstatic.com/draco/v1/decoders/',
@@ -1841,7 +1842,8 @@ class TalkingHead {
 
       default:
         for( let i=0,l=o.ms.length; i<l; i++ ) {
-          o.ms[i][o.is[i]] = o.applied;
+          const isMouth = mt.startsWith('viseme_') || mt.startsWith('mouth') || mt.startsWith('jaw');
+          o.ms[i][o.is[i]] = isMouth ? o.applied * (this.opt.mouthFactor ?? 1) : o.applied;
         }
 
       }
