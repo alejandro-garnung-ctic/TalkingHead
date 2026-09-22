@@ -1,5 +1,6 @@
 # Talking Head (3D)
 
+![](./assets/comparativa.png)
 
 ### Demo Videos
 
